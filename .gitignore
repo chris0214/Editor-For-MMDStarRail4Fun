@@ -1,0 +1,33 @@
+# .NET / Visual Studio
+bin/
+obj/
+.vs/
+artifacts/
+publish/
+release/
+TestResults/
+*.user
+*.suo
+*.pdb
+
+# Local editor state
+.starrail-editor/
+.codebase-memory/
+
+# External MMD/MME assets are intentionally not part of this repository
+MMDStarRail4Fun/
+Shader/
+Shaders/
+Texture2D/
+Textures/
+*.fx
+*.hlsl
+*.pmx
+*.vmd
+*.dds
+*.tga
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
