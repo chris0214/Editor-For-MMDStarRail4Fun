@@ -1,0 +1,109 @@
+{
+  "labels": {
+    "MATERIAL_DOMAIN": "材质类型",
+    "BASE_COLOR_FROM": "基础颜色来源",
+    "BASE_ALPHA_FROM": "透明度来源",
+    "SUB_INDEX_FROM": "子材质来源",
+    "SUB_INDEX_SWIZZLE": "子材质通道",
+    "DIFFUSE_THRESHOLD_FROM": "阴影阈值来源",
+    "DIFFUSE_THRESHOLD_SWIZZLE": "阴影阈值通道",
+    "RAMP_COLOR_FROM": "Ramp 来源",
+    "SHADOW_MODE": "自阴影",
+    "SPECULAR_THRESHOLD_FROM": "高光阈值来源",
+    "SPECULAR_THRESHOLD_SWIZZLE": "高光阈值通道",
+    "STARRYSKY": "启用星空",
+    "EMISSIVE_COLOR_FROM": "自发光颜色来源",
+    "EMISSIVE_MASK_FROM": "自发光遮罩来源",
+    "EMISSIVE_MASK_SWIZZLE": "自发光遮罩通道",
+    "SHADOW_MAP_SIZE": "阴影贴图分辨率",
+    "Script": "阴影合成强度",
+    "DepthBias": "阴影深度偏移"
+  },
+  "rules": [
+    {
+      "pattern": ".*_TEXTURE$",
+      "group": "纹理资源",
+      "nodeId": "textures",
+      "unit": "",
+      "advanced": false,
+      "components": []
+    },
+    {
+      "pattern": "^(MATERIAL_DOMAIN|SHADOW_MODE|STARRYSKY|.*_FROM|.*_SWIZZLE|SHADOW_MAP_SIZE)$",
+      "group": "",
+      "nodeId": "",
+      "unit": "",
+      "advanced": false,
+      "components": [{ "label": "值", "softMinimum": 0, "softMaximum": 8192, "hardMinimum": 0, "hardMaximum": 16384, "step": 1 }]
+    },
+    {
+      "pattern": ".*MapST$|^EyesAnimatedST$",
+      "group": "",
+      "nodeId": "textures",
+      "unit": "UV",
+      "advanced": true,
+      "components": [
+        { "label": "缩放 X", "softMinimum": -10, "softMaximum": 10, "hardMinimum": -1000, "hardMaximum": 1000, "step": 0.01 },
+        { "label": "缩放 Y", "softMinimum": -10, "softMaximum": 10, "hardMinimum": -1000, "hardMaximum": 1000, "step": 0.01 },
+        { "label": "偏移 X", "softMinimum": -5, "softMaximum": 5, "hardMinimum": -1000, "hardMaximum": 1000, "step": 0.01 },
+        { "label": "偏移 Y", "softMinimum": -5, "softMaximum": 5, "hardMinimum": -1000, "hardMaximum": 1000, "step": 0.01 }
+      ]
+    },
+    {
+      "pattern": ".*(MapSpeed|TexSpeed|AnimatedSpeed)$",
+      "group": "",
+      "nodeId": "textures",
+      "unit": "UV/帧",
+      "advanced": true,
+      "components": [
+        { "label": "X", "softMinimum": -10, "softMaximum": 10, "hardMinimum": -1000, "hardMaximum": 1000, "step": 0.01 },
+        { "label": "Y", "softMinimum": -10, "softMaximum": 10, "hardMinimum": -1000, "hardMaximum": 1000, "step": 0.01 }
+      ]
+    },
+    {
+      "pattern": ".*(Color|Tint)(?:[0-7])?$",
+      "group": "",
+      "nodeId": "",
+      "unit": "",
+      "advanced": false,
+      "components": [
+        { "label": "R", "softMinimum": 0, "softMaximum": 1, "hardMinimum": 0, "hardMaximum": 1, "step": 0.01 },
+        { "label": "G", "softMinimum": 0, "softMaximum": 1, "hardMinimum": 0, "hardMaximum": 1, "step": 0.01 },
+        { "label": "B", "softMinimum": 0, "softMaximum": 1, "hardMinimum": 0, "hardMaximum": 1, "step": 0.01 },
+        { "label": "A", "softMinimum": 0, "softMaximum": 1, "hardMinimum": 0, "hardMaximum": 1, "step": 0.01 }
+      ]
+    },
+    {
+      "pattern": ".*Gamma[0-7]?$",
+      "group": "",
+      "nodeId": "",
+      "unit": "Gamma",
+      "advanced": false,
+      "components": [{ "label": "值", "softMinimum": 0.01, "softMaximum": 10, "hardMinimum": 0.001, "hardMaximum": 100, "step": 0.01 }]
+    },
+    {
+      "pattern": ".*Shininess[0-7]?$",
+      "group": "",
+      "nodeId": "specular",
+      "unit": "",
+      "advanced": false,
+      "components": [{ "label": "值", "softMinimum": 0.1, "softMaximum": 128, "hardMinimum": 0.001, "hardMaximum": 1024, "step": 0.1 }]
+    },
+    {
+      "pattern": "^(Script|DepthBias)$",
+      "group": "阴影设置",
+      "nodeId": "shadow",
+      "unit": "",
+      "advanced": false,
+      "components": [{ "label": "值", "softMinimum": 0, "softMaximum": 1, "hardMinimum": -10, "hardMaximum": 10, "step": 0.01 }]
+    },
+    {
+      "pattern": ".*(Intensity|Multiplier|Roughness|Power|Density|Scale|Threshold|Ramp|Feather|Width|Range|Offset|Thickness|Const|Disp|Baise|Smooth|Mode)(?:[0-7])?$|^AlphaConst$|^OSScale$",
+      "group": "",
+      "nodeId": "",
+      "unit": "",
+      "advanced": false,
+      "components": [{ "label": "值", "softMinimum": -10, "softMaximum": 10, "hardMinimum": -1000, "hardMaximum": 1000, "step": 0.01 }]
+    }
+  ]
+}
